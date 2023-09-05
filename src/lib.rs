@@ -277,7 +277,6 @@ impl TechnologyTree {
                     prerequisites,
                     cost: cost.parse::<u32>().unwrap_or(0),
                 };
-                println!("Loaded technology: {:?}", technology);
                 technologies.insert(tech_id.to_string(), technology);
             }
         }
@@ -288,7 +287,6 @@ impl TechnologyTree {
     pub fn load_from_file(filename: &str) -> io::Result<Self> {
         let data = fs::read_to_string(filename)?;
         let tech_tree = TechnologyTree::deserialize(&data);
-        println!("Loaded tech tree from {}", filename);
         Ok(tech_tree)
     }
 }
